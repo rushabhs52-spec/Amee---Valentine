@@ -1,9 +1,43 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Valentine's Day</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            background-color: #ffcccb;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .message {
+            font-size: 2em;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+        .message:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <h1>Happy Valentine's Day!</h1>
-    <p>Celebrate love and togetherness.</p>
+    <div class="message">❤️ Love is in the air! ❤️</div>
+    <script>
+        const messages = [
+            "You make my heart smile!", 
+            "Forever and always.", 
+            "You're my favorite person!"
+        ];
+        const messageDiv = document.querySelector('.message');
+        let index = 0;
+        setInterval(() => {
+            messageDiv.textContent = messages[index];
+            index = (index + 1) % messages.length;
+        }, 3000);
+    </script>
 </body>
 </html>
