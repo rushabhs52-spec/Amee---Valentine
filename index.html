@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day!</title>
+    <title>Valentine's Day Proposal</title>
     <style>
         body {
-            background-color: #ffcccb;
-            text-align: center;
             font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccb;
+            
         }
-        h1 {
-            color: #ff3366;
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            display: inline-block;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s infinite;
         }
-        .message {
-            font-size: 2em;
-            margin: 20px;
-            transition: transform 0.3s;
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
         }
-        .message:hover {
-            transform: scale(1.1);
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+        .heart:after {
+            left: 50px;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .celebration {
+            display: none;
         }
     </style>
+    <script>
+        function showCelebration() {
+            document.querySelector('.celebration').style.display = 'block';
+        }
+    </script>
 </head>
 <body>
-    <h1>Happy Valentine's Day!</h1>
-    <div class="message">❤️ Love is in the air! ❤️</div>
-    <script>
-        const messages = [
-            "You make my heart smile!", 
-            "Forever and always.", 
-            "You're my favorite person!"
-        ];
-        const messageDiv = document.querySelector('.message');
-        let index = 0;
-        setInterval(() => {
-            messageDiv.textContent = messages[index];
-            index = (index + 1) % messages.length;
-        }, 3000);
-    </script>
+    <h1>Will you be my Valentine?</h1>
+    <div class="heart"></div>
+    <br>
+    <button onclick="showCelebration();">YES</button>
+    <button onclick="showCelebration();">NO</button>
+    <div class="celebration">
+        <h2>🎉 Celebrating Love! 🎉</h2>
+        <p>Thank you for being so special!</p>
+    </div>
 </body>
 </html>
